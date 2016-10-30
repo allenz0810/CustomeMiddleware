@@ -51,8 +51,8 @@ namespace ServiceForCustomMiddleware
 
             app.UseApplicationInsightsExceptionTelemetry();
 
-            app.UseMiddleware<CustomMidware>(Configuration);
-
+            app.UseMyCustomeMiddleware(loggerFactory, Configuration);
+            
             app.UseMvc();
         }
     }

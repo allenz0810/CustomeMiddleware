@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 
-namespace CustomeMiddleware
+namespace CustomeMiddlewarem
 {
     public class CustomMidware
     {
@@ -21,10 +21,11 @@ namespace CustomeMiddleware
 
         public async Task Invoke(HttpContext httpContext)
         {
-            //await httpContext.Response.WriteAsync("Start Custom Middleware");
+            
             Console.WriteLine($"Request for {httpContext.Request.Path} received ({httpContext.Request.ContentLength ?? 0} bytes)");
+            
             await _next.Invoke(httpContext);
-            //await httpContext.Response.WriteAsync("End Custom Middleware");
+            
         }
 
         //public static void SetBasePath(string basePath)

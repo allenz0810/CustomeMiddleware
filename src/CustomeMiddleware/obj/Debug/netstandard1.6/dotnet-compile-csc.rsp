@@ -65,6 +65,6 @@
 -r:"C:\Users\Allen\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll"
 -r:"C:\Users\Allen\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\Allen\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
-"C:\GitHub\CustomeMiddleware\src\CustomeMiddleware\CustomeMiddlewareExtensions.cs"
 "C:\GitHub\CustomeMiddleware\src\CustomeMiddleware\CustomMidware.cs"
+"C:\GitHub\CustomeMiddleware\src\CustomeMiddleware\MiddlewareExtensions.cs"
 "C:\GitHub\CustomeMiddleware\src\CustomeMiddleware\Properties\AssemblyInfo.cs"
