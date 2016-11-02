@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using CustomeMiddlewarem;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using CustomeMiddleware;
 
 namespace ServiceForCustomMiddleware
 {
@@ -52,7 +48,11 @@ namespace ServiceForCustomMiddleware
             app.UseApplicationInsightsExceptionTelemetry();
 
             app.UseMyCustomeMiddleware(loggerFactory, Configuration);
-            
+
+            //app.Run(async (context) =>
+            //{
+            //    await context.Response.WriteAsync("Hello from run function");
+            //});
             app.UseMvc();
         }
     }

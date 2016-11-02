@@ -67,6 +67,5 @@
 -r:"C:\Users\Allen\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
 "C:\GitHub\CustomeMiddleware\src\CustomeMiddleware\CustomMidware.cs"
 "C:\GitHub\CustomeMiddleware\src\CustomeMiddleware\Email.cs"
-"C:\GitHub\CustomeMiddleware\src\CustomeMiddleware\MiddlewareExtensions.cs"
 "C:\GitHub\CustomeMiddleware\src\CustomeMiddleware\SendEmail.cs"
 "C:\GitHub\CustomeMiddleware\src\CustomeMiddleware\Properties\AssemblyInfo.cs"
