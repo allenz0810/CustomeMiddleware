@@ -9,9 +9,10 @@ namespace CustomeMiddleware
     {
         public string From { get; set; }
         public string To { get; set; }
-        public string url { get; set; }
-        public string port { get; set; }
-        public string Header { get; set; }
+        public string Domain { get; set; }
+        public string Uri { get; set; }
+        public int port { get; set; }
+        public string Subject { get; set; }
         public string Body { get; set; }
         public byte[] Attchment { get; set; }
     }
