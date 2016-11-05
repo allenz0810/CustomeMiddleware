@@ -11,23 +11,24 @@ namespace CustomeMiddlewarem
     public class CustomMidware
     {
         private readonly RequestDelegate _next;
-        private static Email _email;
+        private static Email _email = new Email();
         private readonly IConfigurationRoot _config;
 
         public CustomMidware(ILoggerFactory loggerfactory, IConfigurationRoot config, RequestDelegate next)
         {
             _config = config;
             _email.From = _config["ErrorSetUp:Email:Form"];
-            //(_config["ConnectionStrings:WorldContextConnection"]
             _email.To = _config["ErrorSetUp:Email:To"];
+            _email.From = _config["ErrorSetUp:Email:Password"];
+            _email.To = _config["ErrorSetUp:Email:Port"];
+            _email.From = _config["ErrorSetUp:Email:Server"];
             _next = next;
         }
 
         public async Task Invoke(HttpContext httpContext)
         {
-            //await httpContext.Response.WriteAsync("Hello from CustomMidware");
             Console.WriteLine($"Request for {httpContext.Request.Path} received ({httpContext.Request.ContentLength ?? 0} bytes)");
-            //await httpContext.Response.WriteAsync("Good bye from CustomMidware");
+            await new SendEmail().SendEmailWithGmailAccountAsync(_email);
 
             await _next.Invoke(httpContext);
         }

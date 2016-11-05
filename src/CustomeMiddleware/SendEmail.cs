@@ -16,13 +16,13 @@ namespace CustomeMiddleware
             emailMessage.Subject = email.Subject;
             emailMessage.Body = new TextPart("plain") { Text = email.Body };
 
-            using (var client = new SmtpClient())
-            {
-                client.LocalDomain = email.Domain;
-                await client.ConnectAsync(email.Uri, email.port, SecureSocketOptions.None).ConfigureAwait(false);
-                await client.SendAsync(emailMessage).ConfigureAwait(false);
-                await client.DisconnectAsync(true).ConfigureAwait(false);
-            }
+            //using (var client = new SmtpClient())
+            //{
+            //    client.LocalDomain = email.Domain;
+            //    await client.ConnectAsync(email.Uri, email.port, SecureSocketOptions.None).ConfigureAwait(false);
+            //    await client.SendAsync(emailMessage).ConfigureAwait(false);
+            //    await client.DisconnectAsync(true).ConfigureAwait(false);
+            //}
         }
 
         public async Task SendEmailWithGmailAccountAsync(Email email)
@@ -57,7 +57,7 @@ namespace CustomeMiddleware
 
             using (var client = new MailKit.Net.Smtp.SmtpClient())
             {
-                client.Connect("smtp.gmail.com", 587, false);
+                client.Connect(email.Server, email.Port, false);
 
                 // Note: since we don't have an OAuth2 token, disable
                 // the XOAUTH2 authentication mechanism.
