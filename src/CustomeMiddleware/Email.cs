@@ -15,6 +15,6 @@ namespace CustomeMiddleware
         public int Port { get; set; }
         public string Subject { get; set; }
         public string Body { get; set; }
-        public byte[] Attchment { get; set; }
+        public string Attachment { get; set; }
     }
 }

@@ -22,6 +22,8 @@ namespace CustomeMiddlewarem
             _email.From = _config["ErrorSetUp:Email:Password"];
             _email.To = _config["ErrorSetUp:Email:Port"];
             _email.From = _config["ErrorSetUp:Email:Server"];
+            _email.Attachment = _config["ErrorSetUp:Email:Attachment"];
+            
             _next = next;
         }
 

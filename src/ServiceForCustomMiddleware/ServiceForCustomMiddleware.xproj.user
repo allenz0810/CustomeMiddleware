@@ -3,6 +3,7 @@
   <PropertyGroup>
     <ActiveDebugProfile>ServiceForCustomMiddleware</ActiveDebugProfile>
     <AutoRefresh>false</AutoRefresh>
+    <ShowAllFiles>true</ShowAllFiles>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DebuggerFlavor>ProjectDebugger</DebuggerFlavor>

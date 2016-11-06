@@ -2,6 +2,7 @@
 using MailKit.Security;
 using MimeKit;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace CustomeMiddleware
 {
@@ -36,36 +37,26 @@ namespace CustomeMiddleware
             {
                 Text = @"Sending Email from custom middleware."
             };
-            // create an image attachment for the file located at path
-            //var attachment = new MimePart("image", "png")
-            //{
-            //    ContentObject = new ContentObject(File.OpenRead(path), ContentEncoding.Default),
-            //    ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
-            //    ContentTransferEncoding = ContentEncoding.Base64,
-            //    FileName = Path.GetFileName(path)
-            //};
 
             var alternative = new Multipart("alternative");
             alternative.Add(html);
 
-            // now create the multipart/mixed container to hold the message text and the
-            // image attachment
             var multipart = new Multipart("mixed");
-            multipart.Add(alternative);
+            multipart.Add(new MimePart()
+            {
+                ContentObject = new ContentObject(File.OpenRead(email.Attachment), ContentEncoding.Default),
+                ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
+                ContentTransferEncoding = ContentEncoding.Base64,
+                FileName = Path.GetFileName(email.Attachment)
+            });
             //multipart.Add(attachment);
             message.Body = multipart;
 
-            using (var client = new MailKit.Net.Smtp.SmtpClient())
+            using (var client = new SmtpClient())
             {
                 client.Connect(email.Server, email.Port, false);
-
-                // Note: since we don't have an OAuth2 token, disable
-                // the XOAUTH2 authentication mechanism.
                 client.AuthenticationMechanisms.Remove("XOAUTH2");
-
-                // Note: only needed if the SMTP server requires authentication
                 client.Authenticate(email.From, email.Password);
-
                 client.Send(message);
                 client.Disconnect(true);
             }

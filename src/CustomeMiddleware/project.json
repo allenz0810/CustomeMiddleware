@@ -6,7 +6,8 @@
     "Microsoft.Extensions.Configuration.Abstractions": "1.0.0",
     "Microsoft.Extensions.Logging.Abstractions": "1.0.0",
     "NETStandard.Library": "1.6.0",
-    "MailKit": "1.10.0"
+    "MailKit": "1.10.0",
+    "System.IO.FileSystem": "4.3.0-preview1-24530-04"
   },
 
   "frameworks": {
